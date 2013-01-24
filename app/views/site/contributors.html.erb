@@ -11,23 +11,74 @@
   -webkit-box-sizing:border-box;
   }
 
-html, body, h1, h2, p { margin:0px; padding:0px; }
-html, body, .page { height:100%; min-height:640px; position:relative; }
+.cf:before,
+.cf:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.cf:after {
+    clear: both;
+}
+
+html, body, h1, h2, p, ul, li {
+  margin:0px;
+  padding:0px;
+  }
+
+h1 {
+  font-size: 12px;
+  line-height: 30px;
+  font-weight: bold;
+  display: inline-block;
+  margin-left: 35px;
+}
+
+h2 {
+  font-size: 25px;
+  line-height: 30px;
+  margin-bottom: 20px;
+  margin-top: 30px;
+}
+
+h3 {
+  font-style: italic;
+  font-size: 14px;
+  font-weight: normal;
+  margin: 0; padding: 0;
+}
+
+html, body, .page {
+  height:100%;
+  position:relative; }
 
 body {
   color:#333;
-  font:normal 16px/25px Arial,sans-serif;
+  font:normal 14px/1.5 'Helvetica Neue', Helvetica, Arial,sans-serif;
   background-color:#000;
   background-position:50% 50%;
   background-repeat:no-repeat;
-  background-attachment:fixed;
   background-size:cover;
+  background-attachment: fixed;
   }
 
 small {
   font-size:12px;
-  text-shadow:#000 0px 1px 5px;
+  color: #999;
   }
+
+p { margin-bottom: 20px;}
+p:last-child { margin-bottom: 0;}
+
+em { font-style: italic;}
+
+a {
+  color: blue;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
 
 body.photo-0 { background-image:url(/assets/contributors/0.jpg) }
 body.photo-1 { background-image:url(/assets/contributors/1.jpg); }
@@ -45,11 +96,11 @@ body.photo-5 .photo-5 { display:block; }
 .caption {
   max-width:320px;
   float:right;
-  font:italic 16px/20px 'Times New Roman',serif;
+  font:italic 14px/20px 'Times New Roman',serif;
   position:fixed;
   text-align:right;
   right:70px;
-  bottom:10px;
+  bottom:20px;
   text-shadow:#000 0px 1px 5px;
   color:#fff;
   display:none;
@@ -57,7 +108,7 @@ body.photo-5 .photo-5 { display:block; }
 
 .caption a,
 .attr strong {
-  color:#76C551;
+  color:white;
   text-decoration:none;
   }
 
@@ -65,7 +116,7 @@ body.photo-5 .photo-5 { display:block; }
 
 a.next {
   display:block;
-  position:fixed;
+  position:absolute;
   right:10px;
   bottom:10px;
   width:40px;
@@ -76,26 +127,57 @@ a.next {
   background:url(/assets/contributors/sprite.png) -120px 0px no-repeat;
   background-color:#000;
   background-color:rgba(0,0,0,0.5);
+  position: fixed;
   }
 
-.button {
-  color:#fff;
-  text-decoration:none;
-  font-weight:bold;
-  display:block;
-  height:45px;
-  width:280px;
-  position:relative;
-  margin:0px auto 10px;
-  padding:10px 25px;
-  text-align:center;
-  background:#000;
-  background:rgba(0,0,0,0.95);
-  border-radius:5px;
-  }
+#skinny-top-bar {
+  height: 30px;
+  background: white;
+  position: fixed;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  right: 0;
+}
 
-#content .button.osm:before,
-#content .button.vendor:after {
+a.logo {
+  color: #333;
+  display: block;}
+a.logo:hover { text-decoration: none;}
+
+.osmlogo {
+  display: block;
+  height: 30px;
+  width: 20px;
+  margin-right: 5px;
+  background: url(/assets/contributors/sprite.png) -250px -11px no-repeat;
+  margin-left: 10px;
+  position: absolute;
+  top: 5px;
+}
+
+#greeting {
+  position: absolute;
+  right: 10px;
+  top: 4px;
+}
+
+.secondary-actions li {
+  float: left;
+  list-style: none;
+  margin-left: 10px;
+  padding-left: 10px;
+  border-left: 1px solid #ddd;
+}
+
+.secondary-actions li:first-child {
+  border-left: 0;
+  margin-left: 0;
+  padding-left: 0;
+}
+
+#content-heading .button.osm:before,
+#content-heading .button.vendor:after {
   content:'';
   display:inline-block;
   vertical-align:middle;
@@ -103,52 +185,59 @@ a.next {
   width:20px; height:20px;
   }
 
-#content .button.osm { height:75px; padding:25px; background: #76c551; }
-#content .button.osm:before { background:url(/assets/contributors/sprite.png) -250px -10px no-repeat; margin-right:10px; }
-#content .button.vendor:after { background:url(/assets/contributors/sprite.png) -290px -10px no-repeat; margin-left:5px; }
-
-.text,
-.buttons {
-  position:relative;
-  width:40%;
-  min-width:320px;
-  max-width:480px;
-  }
+#content-heading .button.osm { height:75px; padding:25px; background: #76c551; }
+#content-heading .button.osm:before { background:url(/assets/contributors/sprite.png) -250px -10px no-repeat; margin-right:10px; }
+#content-heading .button.vendor:after { background:url(/assets/contributors/sprite.png) -290px -10px no-repeat; margin-left:5px; }
 
 .text {
+  position:relative;
+  padding: 0 20px;
+  }
+
+#content-heading .text {
   padding:40px;
   background:white;
   border-bottom:1px solid #ddd;
   }
 
-.buttons { text-align:center; }
+#header .text {
+  position:absolute;
+  left:0px;
+  bottom:0;
+  margin-left: 25%;
+  background: #333;
+  background: rgba(0,0,0,.8);
+  }
 
-#content .buttons { padding:20px 0px 80px; }
-
-#header .text { position:absolute; left:0px; bottom:40px; }
-
-.attr { position:relative; padding-top:160px; }
+.attr {
+  position:relative;
+  padding: 170px 20px 20px 20px;
+}
 
 .attr strong {
   display:block;
   font-size:20px;
-  margin:0px 0px 10px;
   }
 
-.attr strong span { color:#333; }
+.attr strong span { color:#76c551; }
 
 .attr .user-image {
   position:absolute;
-  top:0px; right:0px; left:240px;
-  height:120px;
-  background-position:50% 50%;
+  top:0px; right:240px; left:0px;
+  height:150px;
+  background-position:0 50%;
   background-repeat:no-repeat;
   background-image:url(/assets/contributors/osm.png);
   }
 
 .attr .byosm {
-  position:absolute; top:0px; left:0px; z-index:1;
-  width:240px; height:120px; padding:35px 40px;
+  position:absolute;
+  top:0px;
+  right:0px;
+  z-index:1;
+  width:240px;
+  height:150px;
+  padding:20px 20px 20px 40px;
   font:bold 24px/25px Helvetica,Arial,sans-serif;
   letter-spacing:-1px;
   white-space:nowrap;
@@ -162,73 +251,106 @@ a.next {
   }
 
 .attr .byosm .mark {
-  position:absolute; right:-23px; top:36px;
-  width:48px; height:48px;
-  background:url(/assets/contributors/sprite.png) 0px -72px no-repeat;
+  position: relative;
+  width: 56px;
+  margin-bottom: 10px;
+  height: 56px;
+  background: url(/assets/contributors/sprite.png) -50px 0px no-repeat;
   }
 
-#content { margin-top:-40px; }
-#content .text p,
-#content .text strong { padding-left:40px; }
+#content-heading { margin-top:-40px; }
 
-.img {
-  margin:-10px -10px 30px;
-  height:160px;
-  background:url(/assets/contributors/headers.jpg) 420px 160px no-repeat;
-  border-radius:3px;
-  }
-
-.img.local { background-position:50% 0px; }
-.img.community { background-position:50% -170px; }
-.img.open { background-position:50% -340px; }
-.img.widget { background-position:100% -510px; }
+.text p > strong { padding-left:0px; }
 
 .icon {
-  width:40px; height:40px;
-  position:absolute; left:30px;
+  width:30px; height:30px;
+  position:relative; float: left;
+  margin-right: 10px;
   background:40px 40px url(/assets/contributors/sprite.png) no-repeat;
   }
 
 .icon.local { background-position:0px 0px; }
-.icon.community { background-position:-40px 0px; }
-.icon.open { background-position:-80px 0px; }
+.icon.community { background-position:0px -40px; }
+.icon.open { background-position:0px -80px; }
+.icon.contributors { background-position:0px -120px; }
+.icon.infringement { background-position:0px -160px; }
 
+#content {
+  display: block;
+  position: relative;
+  background: white;
+  color: #333;
+  width: 50%;
+  margin-left: 25%;
+  min-width: 320px;
+  max-width: 480px;
+}
+
+.small-heading {
+  background: #F4F4FF;
+  color: #333;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+.small-heading h3 {
+}
+.small-heading.details {
+  margin-top: 30px;
+}
+
+#final-actions {
+  margin-left: 25%;
+}
+
+#content .section {
+  margin-bottom: 30px;
+}
+#content .section ul li { margin-left: 20px;}
+
+#content #copyright-infringement {
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #ddd;
+}
+
+a.button,
 a.builder {
   display:inline-block;
   text-decoration:none;
-  background:#000;
-  background:rgba(0,0,0,0.5);
+  background:#7092ff;
   padding:5px 15px;
   border-radius:5px;
-  margin:20px 10px 10px;
   color:#fff;
-  text-transform:uppercase;
-  font:normal 9px/20px Arial,sans-serif;
+  font-weight: bold;
   }
 
+a.builder:hover {
+  background: blue;
+}
+
 a.builder em {
-  display:inline-block;
-  vertical-align:middle;
-  width:20px; height:20px;
-  text-indent:-9999px;
-  overflow:hidden;
-  background:url(/assets/contributors/sprite.png) -170px -10px no-repeat;
+  display: inline-block;
+  vertical-align: middle;
+  width: 27px;
+  height: 30px;
+  text-indent: -9999px;
+  overflow: hidden;
+  background: url(/assets/contributors/sprite.png) -166px -5px no-repeat;
   }
 
 div.builder {
-  background:#181818;
-  background:rgba(24,24,24,0.95);
+  background: #333;
+  background: rgba(0, 0, 0, .8);
   display:none;
   position:fixed; left:50%; top:0px;
   margin:20px 0px 0px -160px;
   width:320px;
   padding:0 20px 20px 20px;
-  border-radius:5px;
   z-index:2;
   }
 
 div.builder a.close {
-  position:absolute; right:-20px; top:-20px; z-index:1;
+  position:absolute; right:-20px; top:-20px; z-index:100;
   display:block;
   width:40px; height:40px;
   text-indent:-9999px;
@@ -242,10 +364,9 @@ div.builder .button {
   margin:0px 0px 0px auto;
   }
 div.builder .attr strong { margin-bottom: 0;}
-div.builder .attr strong span { color:white; }
 div.builder p { color: white;}
 div.builder a.customized { display:none; }
-div.builder a.skip { display:block; }
+div.builder a.skip { display:block; color: white; }
 div.customized a.skip { display:none; }
 div.customized a.customized { display:block; }
 
@@ -263,13 +384,14 @@ div.builder .attr {
 
 input[type='text'] {
   border:0px;
-  background:#111;
+  background:#000;
   color:#fff;
   display:inline-block;
-  padding:0px 5px;
+  padding:5px;
   margin:0px 0px 10px;
   width:100%;
-  font:16px/25px Arial,sans-serif;
+  font:14px/25px Arial,sans-serif;
+  border-radius: 4px;
   }
 
 body.builder div.builder { display:block; }
@@ -291,8 +413,8 @@ body.builder:after {
   screen and (min-device-pixel-ratio:2) {
   .icon,
   a.next,
-  #content .button.osm:before,
-  #content .button.vendor:after,
+  #content-heading .button.osm:before,
+  #content-heading .button.vendor:after,
   .attr .byosm .mark,
   div.builder a.close {
     background-image:url(/assets/contributors/sprite@2x.png);
@@ -386,39 +508,73 @@ if (window.location.hash) {
 </head>
 <body class='photo-0'>
 
+<!-- Skinny header -->
+<div id='skinny-top-bar'>
+  <a href='http://www.openstreetmap.org/' class='logo'><span class='osmlogo'></span><h1>OpenStreetMap</h1></a>
+  <ul class="secondary-actions" id="greeting">
+    <li><a href="/login?referer=%2F" id="loginanchor" title="Log in with an existing account">log in</a></li>
+    <li><a href="/user/new" id="registeranchor" title="Create an account for editing">sign up</a></li>
+  </ul>
+</div>
+
 <!-- Attribution header -->
 <div id='header' class='page'>
 <div class='attr text w s'>
   <script type='text/javascript'>document.write(byosm.attr());</script>
-  <p>OSM is built by a community of local mappers that keeps data about roads, cafés, subway stations, and much more up to date every day.</p>
 </div>
 </div>
 
-<!-- About OSM content -->
-<div id='content'>
-<div class='text'>
-  <div class='img local'></div>
-  <div class='icon local'></div>
-  <strong>Local Knowledge</strong>
-  <p>OpenStreetMap emphasizes local knowledge. Contributors make use of aerial imagery, GPS devices, and low-tech field maps to verify that OSM is up to date and accurate.</p>
-</div>
-<div class='text'>
-  <div class='img community'></div>
-  <div class='icon community'></div>
-  <strong>Community Driven</strong>
-  <p>From the engineers that tune OSM's servers to the Humanitarian OSM Team that maps disaster-affected areas, OSM's community is diverse, passionate, and growing every day.</p>
-</div>
-<div class='text'>
-  <div class='img open'></div>
-  <div class='icon open'></div>
-  <strong>Open Data</strong>
-  <p>Your contributions to OpenStreetMap stay yours. Individuals and organizations can all contribute and make use of OSM, one of the largest shared open data sets in the world.</p>
-</div>
-<div class='buttons'>
-  <a class='button osm' href='http://wiki.openstreetmap.org'>Learn more about OSM</a>
-  <script type='text/javascript'>document.write(byosm.getmaps());</script>
-</div>
-<a class='builder' href='#builder' onclick='return byosm.builder()'>Add <em>byosm</em> to your map</a>
+<!-- Legal section -->
+<div class='legal' id='content'>
+  <div class='small-heading'><h3>An introduction to OpenStreetMap</h3></div>
+  <div class='text'>
+    <div class='section'>
+      <p><strong>OSM is built by a community of local mappers that keeps data about roads, cafés, subway stations, and much more up to date every day.</strong></p>
+      <h2><div class='icon local'></div>Local Knowledge</h2>
+      <p>OpenStreetMap emphasizes local knowledge. Contributors make use of aerial imagery, GPS devices, and low-tech field maps to verify that OSM is up to date and accurate.</p>
+    </div>
+    <div class='section'>
+      <h2><div class='icon community'></div>Community Driven</h2>
+      <p>From the engineers that tune OSM's servers to the Humanitarian OSM Team that maps disaster-affected areas, OSM's community is diverse, passionate, and growing every day.</p>
+    </div>
+  </div>
+  <div class='small-heading detail'><h3>Copyright & license details</h3></div>
+  <div class='text'>
+    <div class='section' id='open-data'>
+      <h2><div class='icon open'></div>Open data</h2>
+      <p><strong>OpenStreetMap is open data, licensed under the Open Data Commons Open Database License (ODbL).</strong></p>
+      <p>You are free to copy, distribute, transmit and adapt our data, as long as you credit OpenStreetMap and its contributors. If you alter or build upon our data, you may distribute the result only under the same licence. The full legal code explains your rights and responsibilities. The cartography in our map tiles, and our documentation, are licensed under the Creative Commons Attribution-ShareAlike 2.0 license (CC-BY-SA).</p>
+      <p>Although OpenStreetMap is open data, we cannot provide a free-of-charge map API for third-party developers. See our API Usage Policy, Tile Usage Policy and Nominatim Usage Policy.</p>
+      <div class='buttons'>
+        <script type='text/javascript'>document.write(byosm.getmaps());</script>
+      <a class='builder' href='#builder' onclick='return byosm.builder()'>Add <em>byosm</em> to your map</a>
+      </div>
+
+    </div>
+    <div class='section' id='contributors'>
+      <h2><div class='icon contributors'></div>Our contributors</h2>
+      <p>Our contributors are thousands of individuals. We also include openly-licensed data from national mapping agencies and other sources, among them:</p>
+      <ul id="contributors">
+        <li><strong>Austria</strong>: Contains data from <a href="http://data.wien.gv.at/">Stadt Wien</a> (under <a href="http://creativecommons.org/licenses/by/3.0/at/deed.de">CC BY</a>), <a href="http://www.vorarlberg.at/vorarlberg/bauen_wohnen/bauen/vermessung_geoinformation/weitereinformationen/services/wmsdienste.htm">Land Vorarlberg</a> and Land Tirol (under <a href="http://www.tirol.gv.at/applikationen/e-government/data/nutzungsbedingungen/">CC-BY AT with amendments</a>).
+        </li>
+        <li><strong>Canada</strong>: Contains data from GeoBase®, GeoGratis (© Department of Natural Resources Canada), CanVec (© Department of Natural Resources Canada), and StatCan (Geography Division, Statistics Canada).</li>
+        <li><strong>France</strong>: Contains data sourced from Direction Générale des Impôts.</li>
+        <li><strong>Netherlands</strong>: Contains © AND data, 2007 (<a href="http://www.and.com">www.and.com</a>)</li>
+        <li><strong>New Zealand</strong>: Contains data sourced from Land Information New Zealand. Crown Copyright reserved.</li>
+        <li><strong>South Africa</strong>: Contains data sourced from <a href="http://www.ngi.gov.za/">Chief Directorate: National Geo-Spatial Information</a>, State copyright reserved.</li>
+        <li><strong>United Kingdom</strong>: Contains Ordnance Survey data © Crown copyright and database right 2010-12.</li>
+      </ul>
+    </div>
+    <div class='section' id='copyright-infringement'>
+      <h2><div class='icon infringement'></div>Copyright infringement</h2>
+      <p>OSM contributors are reminded never to add data from any copyrighted sources (e.g. Google Maps or printed maps) without explicit permission from the copyright holders.</p>
+      <p>If you believe that copyrighted material has been inappropriately added to the OpenStreetMap database or this site, please refer to our <a href="http://www.osmfoundation.org/wiki/License/Takedown_procedure">takedown procedure</a> or file directly at our <a href="http://dmca.openstreetmap.org/">on-line filing page</a>.</p>
+    </div>
+  </div>
+  <ul class="secondary-actions cf" id="final-actions">
+    <li><a href="http://www.openstreetmap.org/">Go to openstreetmap.org</a></li>
+    <li><a class="osm" href="http://wiki.openstreetmap.org">Learn more about OSM</a></li>
+  </ul>
 </div>
 
 <!-- Photo captions -->
