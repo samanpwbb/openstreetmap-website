@@ -94,13 +94,13 @@ body.photo-4 .photo-4 { display:block; }
 body.photo-5 .photo-5 { display:block; }
 
 .caption {
-  max-width:320px;
+  max-width:200px;
   float:right;
   font:italic 14px/20px 'Times New Roman',serif;
   position:fixed;
   text-align:right;
-  right:70px;
-  bottom:20px;
+  right: 20px;
+  bottom: 60px;
   text-shadow:#000 0px 1px 5px;
   color:#fff;
   display:none;
@@ -138,12 +138,27 @@ a.next {
   top: 0;
   left: 0;
   right: 0;
+  border-bottom: 1px solid #ddd;
 }
 
 a.logo {
   color: #333;
   display: block;}
 a.logo:hover { text-decoration: none;}
+
+.secondary-actions li {
+  float: left;
+  list-style: none;
+  margin-left: 10px;
+  padding-left: 10px;
+  border-left: 1px solid #ddd;
+}
+
+.secondary-actions li:first-child {
+  border-left: 0;
+  margin-left: 0;
+  padding-left: 0;
+}
 
 .osmlogo {
   display: block;
@@ -162,21 +177,6 @@ a.logo:hover { text-decoration: none;}
   top: 4px;
 }
 
-.secondary-actions li {
-  float: left;
-  list-style: none;
-  margin-left: 10px;
-  padding-left: 10px;
-  border-left: 1px solid #ddd;
-}
-
-.secondary-actions li:first-child {
-  border-left: 0;
-  margin-left: 0;
-  padding-left: 0;
-}
-
-#content-heading .button.osm:before,
 #content-heading .button.vendor:after {
   content:'';
   display:inline-block;
@@ -185,13 +185,15 @@ a.logo:hover { text-decoration: none;}
   width:20px; height:20px;
   }
 
-#content-heading .button.osm { height:75px; padding:25px; background: #76c551; }
-#content-heading .button.osm:before { background:url(/assets/contributors/sprite.png) -250px -10px no-repeat; margin-right:10px; }
 #content-heading .button.vendor:after { background:url(/assets/contributors/sprite.png) -290px -10px no-repeat; margin-left:5px; }
 
 .text {
+  background: white;
   position:relative;
-  padding: 0 20px;
+  padding: 30px 20px;
+  margin-bottom: 40px;
+  box-shadow: 0 0 50px 0 rgba(0, 0, 0, .5);
+  z-index: 1;
   }
 
 #content-heading .text {
@@ -202,11 +204,14 @@ a.logo:hover { text-decoration: none;}
 
 #header .text {
   position:absolute;
-  left:0px;
-  bottom:0;
   margin-left: 25%;
+  width: 50%;
+  min-width: 320px;
+  max-width: 640px;
+  bottom:0;
   background: #333;
   background: rgba(0,0,0,.8);
+  z-index: 2;
   }
 
 .attr {
@@ -264,7 +269,8 @@ a.logo:hover { text-decoration: none;}
 
 .icon {
   width:30px; height:30px;
-  position:relative; float: left;
+  position:relative;
+  float: left;
   margin-right: 10px;
   background:40px 40px url(/assets/contributors/sprite.png) no-repeat;
   }
@@ -275,43 +281,23 @@ a.logo:hover { text-decoration: none;}
 .icon.contributors { background-position:0px -120px; }
 .icon.infringement { background-position:0px -160px; }
 
-#content {
+#content-body {
   display: block;
   position: relative;
-  background: white;
   color: #333;
   width: 50%;
   margin-left: 25%;
   min-width: 320px;
-  max-width: 480px;
+  max-width: 640px;
+  padding-bottom: 40px;
 }
 
-.small-heading {
-  background: #F4F4FF;
-  color: #333;
-  padding: 10px;
-  margin-bottom: 20px;
-}
-.small-heading h3 {
-}
-.small-heading.details {
-  margin-top: 30px;
-}
-
-#final-actions {
-  margin-left: 25%;
-}
-
-#content .section {
+#content-body .section {
   margin-bottom: 30px;
 }
-#content .section ul li { margin-left: 20px;}
+#content-body .section:last-child { margin-bottom: 0;}
 
-#content #copyright-infringement {
-  padding-bottom: 20px;
-  margin-bottom: 20px;
-  border-bottom: 1px solid #ddd;
-}
+#content-body .section ul li { margin-left: 20px;}
 
 a.button,
 a.builder {
@@ -324,13 +310,27 @@ a.builder {
   font-weight: bold;
   }
 
+a.button {
+  height: 40px;
+  margin: auto;
+  display: block;
+  left: 0;
+  right: 0;
+  width: 120px;
+  text-align: center;
+  line-height: 30px;
+  box-shadow: 0 0 50px 0 rgba(0, 0, 0, .5);
+  }
+
+a.button:hover,
 a.builder:hover {
   background: blue;
-}
+  }
 
 a.builder em {
   display: inline-block;
   vertical-align: middle;
+  text-align: center;
   width: 27px;
   height: 30px;
   text-indent: -9999px;
@@ -343,7 +343,7 @@ div.builder {
   background: rgba(0, 0, 0, .8);
   display:none;
   position:fixed; left:50%; top:0px;
-  margin:20px 0px 0px -160px;
+  margin:60px 0px 0px -160px;
   width:320px;
   padding:0 20px 20px 20px;
   z-index:2;
@@ -375,10 +375,20 @@ div.builder.widget .form { display:none; }
 div.builder .widget { display:none; }
 div.builder.widget .widget { display:block; }
 
+.img.widget {
+  background-position: 100% -510px;
+  }
+.img {
+  margin: 20px 0px 20px 0px;
+  height: 160px;
+  background: url(/assets/contributors/headers.jpg) 420px 160px no-repeat;
+  border-radius: 3px;
+  }
+
 div.builder .attr {
   border-bottom:2px dashed #333;
   border-radius:3px;
-  padding: 140px 20px 20px 20px;
+  padding: 160px 20px 20px 20px;
   margin:0px -20px 20px;
   }
 
@@ -407,13 +417,13 @@ body.builder:after {
 @media
   screen and (max-width:640px) {
   a.builder, a.next, div.caption { display:none !important; }
+  #content-body, #header .text { width: 100%; margin: 0;}
   }
 @media
   screen and (-webkit-min-device-pixel-ratio:2),
   screen and (min-device-pixel-ratio:2) {
   .icon,
   a.next,
-  #content-heading .button.osm:before,
   #content-heading .button.vendor:after,
   .attr .byosm .mark,
   div.builder a.close {
@@ -423,6 +433,7 @@ body.builder:after {
   }
 </style>
 <script type='text/javascript'>
+
 // Use byosm namespace.
 var byosm = {};
 byosm.hash = '';
@@ -498,6 +509,7 @@ if (window.location.search) {
     byosm.vendorURL = decodeURIComponent(vu[1].indexOf('://') === -1 ? 'http://'+vu[1] : vu[1]);
   }
 }
+
 // Parse hash.
 if (window.location.hash) {
   var h = window.location.hash.match(/#(.*)/);
@@ -525,8 +537,7 @@ if (window.location.hash) {
 </div>
 
 <!-- Legal section -->
-<div class='legal' id='content'>
-  <div class='small-heading'><h3>An introduction to OpenStreetMap</h3></div>
+<div class='legal' id='content-body'>
   <div class='text'>
     <div class='section'>
       <p><strong>OSM is built by a community of local mappers that keeps data about roads, cafés, subway stations, and much more up to date every day.</strong></p>
@@ -537,9 +548,6 @@ if (window.location.hash) {
       <h2><div class='icon community'></div>Community Driven</h2>
       <p>From the engineers that tune OSM's servers to the Humanitarian OSM Team that maps disaster-affected areas, OSM's community is diverse, passionate, and growing every day.</p>
     </div>
-  </div>
-  <div class='small-heading detail'><h3>Copyright & license details</h3></div>
-  <div class='text'>
     <div class='section' id='open-data'>
       <h2><div class='icon open'></div>Open data</h2>
       <p><strong>OpenStreetMap is open data, licensed under the Open Data Commons Open Database License (ODbL).</strong></p>
@@ -547,9 +555,8 @@ if (window.location.hash) {
       <p>Although OpenStreetMap is open data, we cannot provide a free-of-charge map API for third-party developers. See our API Usage Policy, Tile Usage Policy and Nominatim Usage Policy.</p>
       <div class='buttons'>
         <script type='text/javascript'>document.write(byosm.getmaps());</script>
-      <a class='builder' href='#builder' onclick='return byosm.builder()'>Add <em>byosm</em> to your map</a>
+        <a class='builder' href='#builder' onclick='return byosm.builder()'>Add <em>byosm</em> to your map</a>
       </div>
-
     </div>
     <div class='section' id='contributors'>
       <h2><div class='icon contributors'></div>Our contributors</h2>
@@ -571,10 +578,8 @@ if (window.location.hash) {
       <p>If you believe that copyrighted material has been inappropriately added to the OpenStreetMap database or this site, please refer to our <a href="http://www.osmfoundation.org/wiki/License/Takedown_procedure">takedown procedure</a> or file directly at our <a href="http://dmca.openstreetmap.org/">on-line filing page</a>.</p>
     </div>
   </div>
-  <ul class="secondary-actions cf" id="final-actions">
-    <li><a href="http://www.openstreetmap.org/">Go to openstreetmap.org</a></li>
-    <li><a class="osm" href="http://wiki.openstreetmap.org">Learn more about OSM</a></li>
-  </ul>
+<a href='https://www.openstreetmap.org/login' class='button osm'>Join OSM</a>
+
 </div>
 
 <!-- Photo captions -->
