@@ -140,6 +140,7 @@ a.next {
   left: 0;
   right: 0;
   border-bottom: 1px solid #ddd;
+  z-index: 10;
 }
 
 a.logo {
@@ -346,6 +347,8 @@ div.builder {
   width:50%;
   padding:0 20px 20px 20px;
   z-index:2;
+  min-width: 320px;
+  max-width: 640px;
   }
 
 div.builder a.close {
@@ -360,8 +363,9 @@ div.builder a.close {
 div.builder .button {
   display:block;
   width:200px;
-  margin:0px 0px 0px auto;
+  margin-left:0;
   }
+
 div.builder .attr strong { margin-bottom: 0;}
 div.builder p { color: white;}
 div.builder a.customized { display:none; }
@@ -374,13 +378,10 @@ div.builder.widget .form { display:none; }
 div.builder .widget { display:none; }
 div.builder.widget .widget { display:block; }
 
-.img.widget {
-  background-position: 100% -510px;
-  }
 .img {
   margin: 20px 0px 20px 0px;
   height: 160px;
-  background: url(/assets/contributors/headers.jpg) 420px 160px no-repeat;
+  background: url(/assets/contributors/headers.png) right top no-repeat;
   border-radius: 3px;
   }
 
