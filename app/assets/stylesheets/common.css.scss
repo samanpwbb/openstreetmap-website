@@ -918,7 +918,8 @@ ul.results-list li { border-bottom: 1px solid #ccc; }
 /* Overrides for pages that use new layout conventions */
 .site-verifysignup,
 .site-copyright,
-.site-welcome {
+.site-welcome,
+.site-help {
   #content {
     max-width: 740px;
   }
@@ -2213,5 +2214,45 @@ a.button {
 
   .note-box {
     background-color: $offwhite;
+  }
+}
+
+.site-help {
+  #content {
+    a {
+      display: inline-block;
+      width: 45%;
+      height: 200px;
+      float: left;
+      text-align: center;
+      color: #000;
+      margin: 10px;
+      padding: 10px;
+      border-radius: 10px;
+    }
+
+    h3 {
+      margin-top: 50px;
+    }
+
+    a:hover {
+      text-decoration: none;
+    }
+
+    .welcome {
+      background-color: #D6FFB9;
+    }
+
+    .learnosm {
+      background-color: #BAFCFF;
+    }
+
+    .help {
+      background-color: #FCFFB9;
+    }
+
+    .wiki {
+      background-color: #FFB9CC;
+    }
   }
 }
