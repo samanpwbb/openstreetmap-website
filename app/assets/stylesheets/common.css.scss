@@ -564,6 +564,14 @@ a.donate {
   background-color: #9ed485;
 }
 
+.leaflet-control .control-button.disabled {
+  pointer: default;
+}
+
+.leaflet-control .control-button.disabled .icon { 
+  opacity: .5;
+}
+
 .leaflet-control .control-button .icon {
   margin: 10px;
 }
