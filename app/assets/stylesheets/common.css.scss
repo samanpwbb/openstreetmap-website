@@ -935,6 +935,9 @@ ul.results-list li { border-bottom: 1px solid #ccc; }
   .content-heading { 
     padding: 0;
   }
+  .introduction { 
+    margin-bottom: 0;
+  }
 }
 
 /* No content padding for pages that use new layout conventions */
@@ -1491,31 +1494,31 @@ ul.results-list li { border-bottom: 1px solid #ccc; }
   .sprite {
     background-image: image-url("welcome-sprite.png");
     background-size: 500px 250px;
-    display: block;
-    float: left;
+    position: absolute;
+    top: 0; 
+    bottom: 0;
+    margin: auto;
   }
 
-  .icon-list { 
+  .feature-list { 
     padding-bottom: 20px;
-  div { 
-    margin-bottom: 10px;
+  .feature-item { 
+    position: relative;
       p {
-        padding-top: 10px;
+        margin-left: 70px;
+        margin-bottom: 0;
       }
     }
   }
   .sprite.small {
     width: 50px;
     height: 50px;
+    margin-right: 10px;
+    vertical-align: middle;
   }
 
   .sprite.x {
     background-position: -50px 0;
-  }
-
-  .sprite.term {
-    margin-right: 10px;
-    vertical-align: middle;
   }
 
   .sprite.node {
@@ -1555,12 +1558,10 @@ ul.results-list li { border-bottom: 1px solid #ccc; }
 /* Rules for the Help landing page */
 
 .site-help {
-  .introduction { 
-    margin-bottom: 0;
-  }
   .help-item {
     padding-top: 20px;
     border-top: 1px solid #ccc;
+    h3 { margin-bottom: 0;}
   }
 }
 
