@@ -98,6 +98,12 @@ abbr, acronym {
 
 .fillL { background-color: white; }
 
+/* Utility for centering text */
+
+.center {
+  text-align: center;
+}
+
 /* Default rules for the body of every page */
 
 * {
@@ -1479,13 +1485,10 @@ ul.results-list li { border-bottom: 1px solid #ccc; }
 
 /* Rules for the "Welcome" page */
 .site-welcome {
-  .center {
-    text-align: center;
     .sprite { 
       float: none;
       margin: auto;
     }
-  }
 
   .drop {
     margin-top: 20px;
@@ -1559,8 +1562,6 @@ ul.results-list li { border-bottom: 1px solid #ccc; }
 
 .site-help {
   .help-item {
-    padding-top: 20px;
-    border-top: 1px solid #ccc;
     h3 { margin-bottom: 0;}
   }
 }
