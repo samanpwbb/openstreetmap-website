@@ -87,10 +87,17 @@ abbr, acronym {
 .margin11 { margin-left:91.6666%; }
 .margin12 { margin-left:100.0000%; }
 
-.pad1 { padding: $lineheight/2; }
-.pad2 { padding: $lineheight; }
+/* Utility for managing inner content areas */
+
+.inner22 { padding: $lineheight;}
+.inner12 { padding: $lineheight/2 $lineheight;}
+.inner11 { padding: $lineheight/2;}
+.inner02 { padding: 0 $lineheight;}
+.inner20 { padding: $lineheight 0;}
+
 
 .fillL { background-color: white; }
+
 /* Default rules for the body of every page */
 
 * {
@@ -915,47 +922,28 @@ ul.results-list li { border-bottom: 1px solid #ccc; }
   border-left: 1px solid #ccc;
 }
 
-/* Overrides for pages that use new layout conventions */
+/* Max width for pages that use new layout conventions */
 .site-verifysignup,
 .site-copyright,
 .site-welcome,
 .site-help {
-  #content {
+  .limiter {
     max-width: 740px;
+    margin: auto;
+    position: relative;
   }
-}
-.user-new #content.pad2 {
+  .content-heading { 
     padding: 0;
   }
-
-.user-new .content-heading {
-  height: 200px;  
 }
 
-.header-illustration { 
-  background-position: 0 0;
-  background-repeat: no-repeat;
-  position: absolute;
-}
-
-.header-illustration.new-user-main {
-  height: 200px;
-  width: 100%;
-  left: 0;
-  bottom: 0;
-  background-image: image-url("sign-up-illustration.png");
-}
-
-.header-illustration.new-user-arm {
-  height: 110px;
-  width: 130px;
-  left: 260px;
-  top: 160px;
-  background-image: image-url("sign-up-illustration-arm.png");
-}
-
-@media only screen and (max-width:770px) {
-  .new-user-illustration.new-user-arm { display: none;}
+/* No content padding for pages that use new layout conventions */
+.site-help,
+.site-welcome,
+.user-new {
+  #content.inner22 {
+    padding: 0;
+  }
 }
 
 .wrapper {
@@ -1387,6 +1375,38 @@ ul.results-list li { border-bottom: 1px solid #ccc; }
   padding: $lineheight/4 $lineheight/2;
 }
 
+/* Rules for the sign up page */
+
+.user-new .content-heading {
+  height: 200px;  
+}
+
+.header-illustration { 
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  position: absolute;
+}
+
+.header-illustration.new-user-main {
+  height: 200px;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  background-image: image-url("sign-up-illustration.png");
+}
+
+.header-illustration.new-user-arm {
+  height: 110px;
+  width: 130px;
+  left: 260px;
+  top: 160px;
+  background-image: image-url("sign-up-illustration-arm.png");
+}
+
+@media only screen and (max-width:770px) {
+  .new-user-illustration.new-user-arm { display: none;}
+}
+
 /* Rules for the account confirmation page */
 
 #terms {
@@ -1432,6 +1452,115 @@ ul.results-list li { border-bottom: 1px solid #ccc; }
   }
   .signing-buttons {
     height: 50px;
+  }
+}
+
+/* Rules for the "Verify sign up" page */
+.site-verifysignup .content-heading { 
+  height: 200px;  
+}
+
+.header-illustration.verify-main { 
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  position: absolute;
+}
+
+.header-illustration.verify-main {
+  height: 200px;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  background-image: image-url("verify-illustration.png");
+}
+
+/* Rules for the "Welcome" page */
+.site-welcome {
+  .center {
+    text-align: center;
+    .sprite { 
+      float: none;
+      margin: auto;
+    }
+  }
+
+  .drop {
+    margin-top: 20px;
+  }
+
+  .sprite {
+    background-image: image-url("welcome-sprite.png");
+    background-size: 500px 250px;
+    display: block;
+    float: left;
+  }
+
+  .icon-list { 
+    padding-bottom: 20px;
+  div { 
+    margin-bottom: 10px;
+      p {
+        padding-top: 10px;
+      }
+    }
+  }
+  .sprite.small {
+    width: 50px;
+    height: 50px;
+  }
+
+  .sprite.x {
+    background-position: -50px 0;
+  }
+
+  .sprite.term {
+    margin-right: 10px;
+    vertical-align: middle;
+  }
+
+  .sprite.node {
+    background-position: -100px 0;
+  }
+
+  .sprite.way {
+    background-position: -150px 0;
+  }
+
+  .sprite.changeset {
+    background-position: -200px 0;
+  }
+
+  .sprite.editor {
+    background-position: -250px 0;
+  }
+
+  .sprite.question {
+    background-position: -300px 0;
+  }
+
+  .start-mapping {
+    margin: auto;
+    cursor: pointer;
+    border: none;
+    padding: 20px 40px;
+    font-size: 30px;
+    text-decoration: none;
+  }
+
+  .note-box {
+    background-color: $offwhite;
+  }
+}
+
+/* Rules for the Help landing page */
+
+.site-help {
+  .introduction { 
+    margin-bottom: 0;
+  }
+  .help-item {
+    padding-top: 20px;
+    border-top: 1px solid #ccc;
   }
 }
 
@@ -1761,16 +1890,6 @@ ul.secondary-actions {
     }
   }
 }
-
-/* Utility for managing inner content areas */
-
-.inner22 { padding: $lineheight;}
-
-.inner12 { padding: $lineheight/2 $lineheight;}
-
-.inner11 { padding: $lineheight/2;}
-
-.inner02 { padding: 0 $lineheight;}
 
 /* Utility for general button styles */
 
@@ -2120,139 +2239,3 @@ a.button {
   background: #fff;
 }
 
-/* Rules for the "Verify signup" page */
-.site-verifysignup .content-heading { 
-  height: 200px;  
-}
-
-.header-illustration.verify-main { 
-  background-position: 0 0;
-  background-repeat: no-repeat;
-  position: absolute;
-}
-
-.header-illustration.verify-main {
-  height: 200px;
-  width: 100%;
-  left: 0;
-  bottom: 0;
-  background-image: image-url("verify-illustration.png");
-}
-
-/* Rules for the "Welcome" page */
-.site-welcome {
-  .center {
-    text-align: center;
-    .sprite { 
-      float: none;
-      margin: auto;
-    }
-  }
-
-  .drop {
-    margin-top: 20px;
-  }
-
-  .sprite {
-    background-image: image-url("welcome-sprite.png");
-    background-size: 500px 250px;
-    display: block;
-    float: left;
-  }
-
-  .icon-list { 
-    padding-bottom: 20px;
-  div { 
-    margin-bottom: 10px;
-      p {
-        padding-top: 10px;
-      }
-    }
-  }
-  .sprite.small {
-    width: 50px;
-    height: 50px;
-  }
-
-  .sprite.x {
-    background-position: -50px 0;
-  }
-
-  .sprite.term {
-    margin-right: 10px;
-    vertical-align: middle;
-  }
-
-  .sprite.node {
-    background-position: -100px 0;
-  }
-
-  .sprite.way {
-    background-position: -150px 0;
-  }
-
-  .sprite.changeset {
-    background-position: -200px 0;
-  }
-
-  .sprite.editor {
-    background-position: -250px 0;
-  }
-
-  .sprite.question {
-    background-position: -300px 0;
-  }
-
-  .start-mapping {
-    margin: auto;
-    cursor: pointer;
-    border: none;
-    padding: 20px 40px;
-    font-size: 30px;
-    text-decoration: none;
-  }
-
-  .note-box {
-    background-color: $offwhite;
-  }
-}
-
-.site-help {
-  #content {
-    a {
-      display: inline-block;
-      width: 45%;
-      height: 200px;
-      float: left;
-      text-align: center;
-      color: #000;
-      margin: 10px;
-      padding: 10px;
-      border-radius: 10px;
-    }
-
-    h3 {
-      margin-top: 50px;
-    }
-
-    a:hover {
-      text-decoration: none;
-    }
-
-    .welcome {
-      background-color: #D6FFB9;
-    }
-
-    .learnosm {
-      background-color: #BAFCFF;
-    }
-
-    .help {
-      background-color: #FCFFB9;
-    }
-
-    .wiki {
-      background-color: #FFB9CC;
-    }
-  }
-}

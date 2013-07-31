@@ -144,10 +144,12 @@
       <%= render :partial => "layouts/flash", :locals => { :flash => flash } %>
       <% if content_for? :heading %>
       <div class="content-heading">
-        <%= yield :heading %>
+        <div class='limiter inner22'>
+          <%= yield :heading %>
+        </div>
       </div>
       <% end %>
-      <div id="content" class="pad2 clearfix">
+      <div id="content" class="limiter inner22 clearfix">
         <%= yield %>
       </div>
     </div>

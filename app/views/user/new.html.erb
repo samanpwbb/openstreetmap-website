@@ -4,7 +4,7 @@
   <div class='header-illustration new-user-arm'></div>
 <% end %>
 
-<%= form_for :user, :url => { :action => 'terms' }, :html => { :class => 'signup-form-wrapper fillL col6 pad2' } do %>
+<%= form_for :user, :url => { :action => 'terms' }, :html => { :class => 'signup-form-wrapper fillL col6 inner22' } do %>
   <%= error_messages_for 'user' %>
 
   <%= hidden_field_tag('referer', h(@referer)) unless @referer.nil? %>
@@ -72,7 +72,7 @@
   </div>
 <% end %>
 
-<div class='col6 deemphasize pad2'>
+<div class='col6 deemphasize inner22'>
   <h4><%= t 'user.new.about.header' %></h4>
   <%= t 'user.new.about.html' %>
 </div>
