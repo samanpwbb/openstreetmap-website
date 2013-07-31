@@ -1012,7 +1012,6 @@ ul.results-list li { border-bottom: 1px solid #ccc; }
 
 .content-heading {
   position: relative;
-  padding: $lineheight;
   background: $offwhite;
   z-index: 2;
   h1, h2 {
@@ -1413,7 +1412,7 @@ ul.results-list li { border-bottom: 1px solid #ccc; }
 }
 
 @media only screen and (max-width:770px) {
-  .new-user-illustration.new-user-arm { display: none;}
+  .header-illustration.new-user-arm { display: none;}
 }
 
 /* Rules for the account confirmation page */
